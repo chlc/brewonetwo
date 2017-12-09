@@ -1,5 +1,7 @@
 'use strict';
 
+// this was added by arnold for testing
+
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
