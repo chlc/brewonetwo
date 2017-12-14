@@ -10,6 +10,6 @@ INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('All Da
 INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Alpha King','Three Floyds', 'West Town' TRUE);
 INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Old Style','Old Style', 'Gold Coast' TRUE);
 INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Chicago Pilsner','Baderbrau', 'Bridgeport' TRUE);
-INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Alpha King','Three Floyds', 'Hyde Park' TRUE);
-INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Alpha King','Three Floyds', 'West Loop' TRUE);
-INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Alpha King','Three Floyds', 'West Loop' TRUE);
+INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Daisy Cutter','Half Acre', 'Hyde Park' TRUE);
+INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Flywheel','Metropolitan Brewing', 'Lakeview' TRUE);
+INSERT INTO beers (beer_name,brewery,beer_neighborhood, popular) VALUES ('Sidekick','Two Brothers Brewing Company', 'Edgewater' TRUE);
