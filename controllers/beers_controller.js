@@ -9,11 +9,7 @@
   // Initialize Router
   var router = express.Router();
 
-  // Routes
-  router.get("/", function(req, res) {
-  });
-
-
+  // Post user search result to UserResponses table
   router.post("/api", function(req, res) {
 
     // Setup Variables
@@ -57,10 +53,32 @@
           srmID: srmID
         })
         .then(function(dbUserBeer) {
+          // New table entry shows up in the console
           res.json(dbUserBeer);
         });
       }
     });
-});
+  });
+
+  // Results page shows a beer from ChicagoBeers database
+  router.get("/results", function(req, res) {
+    db.ChicagoBeers.findOne({
+      where: {
+        // Finding a beer where SRM = 50
+        srmID: 50
+      }
+    })
+    .then(function(dbChicagoBeer) {
+      // Creating an object for Handlebars (beer name, brewery & SRM)
+      var hbsObject = {
+        beer: dbChicagoBeer.beer,
+        brewery: dbChicagoBeer.brewery,
+        srmID: dbChicagoBeer.srmID
+      }
+      // Load /results page with the selected beer
+      res.render("results", hbsObject);
+    });
+  });
+
   // Export routes to server.js 
   module.exports = router;
