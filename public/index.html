@@ -7,24 +7,47 @@
 
 		<!-- Latest compiled and minified bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="./css/style.css" type="text/css" />
 
 <!-- 		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" /> -->
 
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<!-- Latest compiled and minified bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<!-- <script src="/assets/js/burgers.js"></script> -->
+		<script src="./js/script.js"></script>
 		<title>brew-one-two</title>
 </head>
 <body>
-
 	<div class="container">
-		<br>
-		<div class="jumbotron text-center">
-			<h1>brew-one-two</h1>
-		</div>
-
+        <div class="jumbotron jumboHeader">
+			<img id="beerImg" src="./img/beer.png"></img>
+        <div>
+    </div>
+<div class="container">
 		<form>
+		  <div class="form-group formGroups">
+		    <label class="labelStyle" for="beer-name">Question: What is the name of your favorite beer?</label>
+		  </div>
+		  <div class="form-group formGroups">
+		    <label class="labelStyle" for="brewery-name">Your Favorite Beer:</label>
+		    <input type="text" class="form-control" id="beer-name-input" placeholder="Beer Name">
+		  </div>
+		  <div class="form-group formGroups">
+		    <label class="labelStyle" for="beer-name">Question: Who brews  your favorite beer?</label>
+		  </div>
+		  <div class="form-group formGroups">
+		    <label class="labelStyle" for="brewery-name">Your Favorite Beer's Brewery:</label>
+		    <input type="text" class="form-control" id="brewery-name-input" placeholder="Beer Name">
+		  </div>
+		  <div class="form-group formGroups">
+		  	<button type="submit" class="btn btn-primary" id="brew-form-submit">Submit</button>
+		</form>
+
+	</div>
+
+
+	<!-- Peter's Form -->
+<!-- 		<form>
 		  <div class="form-group">
 		    <label for="beer-name">Tell us the name of a beer you like (from anywhere), and we'll find the Chicago equivalent</label>
 		    <input name="beerName" type="text" class="form-control" id="beer-name-input" placeholder="Beer Name">
@@ -36,43 +59,8 @@
 		  <div class="form-group">
 		  	<button type="submit" class="btn btn-primary" id="brew-form-submit">Submit</button>
 		</form>
-
+ -->
 	</div>
-
-<script type="text/javascript">
-	$("#brew-form-submit").on("click", function() {
-		event.preventDefault();
-
-		// manipulation of user input values before adding it to our query string/API call...
-		var beerName = $("#beer-name-input").val().trim();
-		var beerNameLC = beerName.toLowerCase();
-
-		var breweryName = $("#brewery-name-input").val().trim();
-		var breweryNameLC = breweryName.toLowerCase();
-
-		var searchString = breweryNameLC + " " + beerNameLC;
-		var encodeSearchString = encodeURIComponent(searchString);
-		console.log(encodeSearchString);
-
-		// Send the POST request.
-	    $.ajax("/api", {
-	      type: "POST",
-	      data: {
-	      	beerNameLC : beerNameLC,
-	      	breweryNameLC : breweryNameLC,
-	      	encodeSearchString : encodeSearchString
-	      }
-	    }).then(
-	      function() {
-	        console.log("created new beer");
-	        // Reload the page to get the updated list
-	        location.reload();
-	
-      });
-
-
-	});
-</script>
 
 
 </body>

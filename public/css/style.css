@@ -1,0 +1,22 @@
+.jumboHeader{
+	background-color: goldenrod; 
+	color: white; 
+	text-align: center;
+}
+
+.labelStyle{
+	color: black;
+}
+
+#beerImg{
+	height: 437px;
+}
+
+#brew-form-submit{
+	
+}
+
+.formGroups {
+	text-align: left;
+}
+
