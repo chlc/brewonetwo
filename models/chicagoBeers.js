@@ -3,9 +3,9 @@
 
 module.exports = function(sequelize, DataTypes) {
   var ChicagoBeers = sequelize.define("ChicagoBeers", {
-    beer: DataTypes.STRING,
+    beer_name: DataTypes.STRING,
     brewery: DataTypes.STRING,
-    srmID: DataTypes.INTEGER
+    ibu: DataTypes.INTEGER
   });
   return ChicagoBeers;
 };

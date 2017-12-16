@@ -5,7 +5,8 @@
   var express = require("express");
   var db = require("../models");
   var request = require("request");
-  
+  var sequelize = require("sequelize");
+
   // Initialize Router
   var router = express.Router();
 
@@ -39,18 +40,23 @@
 
         // Get beer name, brewery, and SRM from API
         var result = JSON.parse(body).data[0];
+
+        console.log("=========================")
+        console.log(result);
+
+
         var actualBeerName = result.name;
         var actualBrewery = result.breweries[0].name;
-        var srmID = result.srmId;
-
+        var ibu = parseInt(result.ibu);
+        console.log(typeof ibu);
         // Testing..
-        // console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nSRM: " + srmID);
+        //console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nIBU: " + parseString(ibu));
         
         // Save data to database table "Users"
         db.UserResponses.create({
-          beer: actualBeerName,
+          beer_name: actualBeerName,
           brewery: actualBrewery,
-          srmID: srmID
+          ibu: ibu
         })
         .then(function(dbUserBeer) {
           res.json(dbUserBeer);
@@ -68,25 +74,30 @@
     })
       .then(function(userResponseData) {
         console.log(userResponseData);
+        var userIBU = userResponseData[0].dataValues.ibu;
         db.ChicagoBeers.findAll({
-          where: {
-            srmID: userResponseData[0].dataValues.srmID
-          }
+          // where: {
+          //   ibu: userResponseData[0].dataValues.ibu
+          // }
+          limit: 1,
+          order: [
+            [sequelize.fn('ABS', sequelize.condition(sequelize.col('ibu'), '-', userIBU)), 'ASC']
+            ]
         })
         .then(function(dbChicagoBeer) {
           // Pick random beer that matchs SRM
           console.log("=====================");
           console.log(dbChicagoBeer);
-          var randomBeer = dbChicagoBeer[Math.floor(Math.random() * dbChicagoBeer.length)];
+          // var randomBeer = dbChicagoBeer[Math.floor(Math.random() * dbChicagoBeer.length)];
       
           //Testing
-          console.log(randomBeer);
+          //console.log(randomBeer);
 
           //Creating an object for Handlebars (beer name, brewery & SRM)
           var hbsObject = {
-            beer: randomBeer.beer,
-            brewery: randomBeer.brewery,
-            srmID: randomBeer.srmID
+            beer: dbChicagoBeer[0].dataValues.beer,
+            brewery: dbChicagoBeer[0].dataValues.brewery,
+            ibu: dbChicagoBeer[0].dataValues.ibu
           }
           // Render /results page with the selected beer
           res.render("results", hbsObject);
