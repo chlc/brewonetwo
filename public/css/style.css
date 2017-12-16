@@ -2,6 +2,7 @@
 	background-color: goldenrod; 
 	color: white; 
 	text-align: center;
+	border: 5px solid black;
 }
 
 .labelStyle{
@@ -10,13 +11,40 @@
 
 #beerImg{
 	height: 437px;
-}
-
-#brew-form-submit{
-	
+	max-height: 100%
 }
 
 .formGroups {
 	text-align: left;
+	font-family: "SkittlesnBeerNF";
+	font-size: 150%;
 }
 
+.page-header {
+	font-family: "SkittlesnBeerNF";
+	font-size: 150%;
+	
+}
+
+.optionContainer{
+	background-color: goldenrod; 
+	text-align: center;
+	border: 5px solid black;
+	height: 550px;
+	font-family: "SkittlesnBeerNF";
+}
+
+.beerInformation,
+h2 {
+	padding: 20px
+}
+
+.beerTraits{
+	padding: 10px
+}
+
+
+@font-face {
+ font-family: "SkittlesnBeerNF";
+ src: url("./fonts/SkittlesnBeerNF.otf") format("otf"),
+}

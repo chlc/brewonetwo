@@ -8,31 +8,53 @@
 		<!-- Latest compiled and minified bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- 		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" /> -->
+		<link rel="stylesheet" href="./css/style.css" type="text/css" />
+		<link rel="stylesheet" href="./css/Beer/beer.css" type="text/css"/>
 
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<!-- Latest compiled and minified bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 		<!-- <script src="/assets/js/burgers.js"></script> -->
 		<title>brew-one-two</title>
 </head>
 <body>
-
-	<div class="container">
-		<br>
-		<div class="jumbotron text-center">
-			<h1>brew-one-two</h1>
+	<div class="container optionContainer">
+		<div class="row">
+			<div class="col-md-12 boxes">
+				<div class="page-header">
+					<h1>What we can recommend for you..</h1>
+				</div>
+			</div>
 		</div>
 
-		<div class="text-center">
-			<h2>Results</h2>
-			<div class="beerGoesHere">{{{ body }}}</div>
-		</div>
-
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Beer Information</h2>
+				
+				{{{ body }}}
+			</div>
 	</div>
 
-<script type="text/javascript">
-	
+<script>
+
+	$(function() {
+	  function beerRise() {
+	    $('.beer').addClass('fill');
+	    $('.head').addClass('active');
+	  }
+	  function pourBeer() {
+	    $('.pour').addClass('pouring');
+	    beerRise();
+	    setTimeout(function() {
+	      $('.pour').addClass('end');
+	    }, 1500);
+	  }
+	  setTimeout(function() {
+	    pourBeer();
+	  }, 3000);
+	});
+
 </script>
 
 

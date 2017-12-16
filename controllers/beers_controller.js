@@ -27,7 +27,7 @@
     var beerQueryURL = "http://api.brewerydb.com/v2/search?q=" + encodeSearchString + "&type=beer&withBreweries=Y&key=" + authKey + "&format=json"; 
 
     // Testing..
-    console.log("Beer Query: " + beerQuery + "\nBrewery Query: " + breweryQuery + "\nEncoded Search String: " + encodeSearchString);
+    // console.log("Beer Query: " + beerQuery + "\nBrewery Query: " + breweryQuery + "\nEncoded Search String: " + encodeSearchString);
 
 
     // API Call
@@ -44,7 +44,7 @@
         var srmID = result.srmId;
 
         // Testing..
-        console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nSRM: " + srmID);
+        // console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nSRM: " + srmID);
         
         // Save data to database table "Users"
         db.UserResponses.create({
@@ -53,7 +53,6 @@
           srmID: srmID
         })
         .then(function(dbUserBeer) {
-          // New table entry shows up in the console
           res.json(dbUserBeer);
         });
       }
@@ -61,30 +60,52 @@
   });
 
   // Results page shows a beer from ChicagoBeers database
-  router.get("/results/:srm", function(req, res) {
-    var srm = req.params.srm
-    // Find all beers in Chicago Beer table that matches SRM
-    db.ChicagoBeers.findAll({
-      where: {
-        srmID: srm
-      }
+  router.get("/results", function(req, res) {
+    // Find latest entry 
+    db.UserResponses.findAll({
+      limit: 1,
+      order: [ ['createdAt', 'DESC']]
     })
-    .then(function(dbChicagoBeer) {
-      // Pick random beer that matchs SRM
-      var randomBeer = dbChicagoBeer[Math.floor(Math.random() * dbChicagoBeer.length)];
+      .then(function(userResponseData) {
+        console.log(userResponseData);
+        db.ChicagoBeers.findAll({
+          where: {
+            srmID: userResponseData[0].dataValues.srmID
+          }
+        })
+        .then(function(dbChicagoBeer) {
+          // Pick random beer that matchs SRM
+          console.log("=====================");
+          console.log(dbChicagoBeer);
+          var randomBeer = dbChicagoBeer[Math.floor(Math.random() * dbChicagoBeer.length)];
       
-      // Testing
-      console.log(randomBeer);
+          //Testing
+          console.log(randomBeer);
 
-      // Creating an object for Handlebars (beer name, brewery & SRM)
-      var hbsObject = {
-        beer: randomBeer.beer,
-        brewery: randomBeer.brewery,
-        srmID: randomBeer.srmID
-      }
-      // Render /results page with the selected beer
-      res.render("results", hbsObject);
+          //Creating an object for Handlebars (beer name, brewery & SRM)
+          var hbsObject = {
+            beer: randomBeer.beer,
+            brewery: randomBeer.brewery,
+            srmID: randomBeer.srmID
+          }
+          // Render /results page with the selected beer
+          res.render("results", hbsObject);
+      });
+      });
     });
+
+
+  router.get("/api/userId", function(req, res) {
+    // Select all items in database
+    db.UserResponses.findAll({
+      limit: 1,
+      order: [ ['createdAt', 'DESC']]
+    })
+      .then(function(dbUserBeer) {
+        //console.log(dbUserBeer[0].id);
+        console.log(dbUserBeer[0].id);
+        return dbUserBeer;
+      });
   });
 
   // Export routes to server.js 

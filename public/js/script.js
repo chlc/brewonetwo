@@ -3,6 +3,14 @@
 	
 $(document).ready(function(){
 	
+	// var getIDOfUser = function() {
+	// 	$.get("/api/userId", function(data) {
+	// 		console.log(data);
+	// 		window.location.href = "/results/" + data;
+	// 	})
+	// };
+
+
 	$("#brew-form-submit").on("click", function() {
 		event.preventDefault();
 
@@ -15,7 +23,7 @@ $(document).ready(function(){
 
 		var searchString = breweryNameLC + " " + beerNameLC;
 		var encodeSearchString = encodeURIComponent(searchString);
-		console.log(encodeSearchString);
+		// console.log(encodeSearchString);
 
 		// Send the POST request.
 	    $.ajax("/api", {
@@ -26,11 +34,8 @@ $(document).ready(function(){
 	      	encodeSearchString : encodeSearchString
 	      }
 	    }).then(
-	      function() {
-	        console.log("created new beer");
-	        // Reload the page to get the updated list
-	        // location.reload();
-	        window.location.href = "/results/" + "50";
+	      function(data) {
+	        window.location.href = "/results";
       	});
 	});
 });	
