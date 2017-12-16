@@ -30,7 +30,7 @@ $(document).ready(function(){
 	        console.log("created new beer");
 	        // Reload the page to get the updated list
 	        // location.reload();
-	        window.location.href = "/results";
+	        window.location.href = "/results/" + "50";
       	});
 	});
 });	

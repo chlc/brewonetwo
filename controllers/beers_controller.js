@@ -61,21 +61,28 @@
   });
 
   // Results page shows a beer from ChicagoBeers database
-  router.get("/results", function(req, res) {
-    db.ChicagoBeers.findOne({
+  router.get("/results/:srm", function(req, res) {
+    var srm = req.params.srm
+    // Find all beers in Chicago Beer table that matches SRM
+    db.ChicagoBeers.findAll({
       where: {
-        // Finding a beer where SRM = 50
-        srmID: 50
+        srmID: srm
       }
     })
     .then(function(dbChicagoBeer) {
+      // Pick random beer that matchs SRM
+      var randomBeer = dbChicagoBeer[Math.floor(Math.random() * dbChicagoBeer.length)];
+      
+      // Testing
+      console.log(randomBeer);
+
       // Creating an object for Handlebars (beer name, brewery & SRM)
       var hbsObject = {
-        beer: dbChicagoBeer.beer,
-        brewery: dbChicagoBeer.brewery,
-        srmID: dbChicagoBeer.srmID
+        beer: randomBeer.beer,
+        brewery: randomBeer.brewery,
+        srmID: randomBeer.srmID
       }
-      // Load /results page with the selected beer
+      // Render /results page with the selected beer
       res.render("results", hbsObject);
     });
   });
