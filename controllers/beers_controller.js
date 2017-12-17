@@ -27,9 +27,9 @@
     // Query URL to send to API
     var beerQueryURL = "http://api.brewerydb.com/v2/search?q=" + encodeSearchString + "&type=beer&withBreweries=Y&key=" + authKey + "&format=json"; 
 
-    // Testing..
+    // Debugging..
     // console.log("Beer Query: " + beerQuery + "\nBrewery Query: " + breweryQuery + "\nEncoded Search String: " + encodeSearchString);
-
+    console.log(beerQueryURL);
 
     // API Call
     // ==========================================================
@@ -48,9 +48,9 @@
         var actualBeerName = result.name;
         var actualBrewery = result.breweries[0].name;
         var ibu = parseInt(result.ibu);
-        console.log(typeof ibu);
-        // Testing..
-        //console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nIBU: " + parseString(ibu));
+
+        // Debugging..
+        // console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nIBU: " + parseString(ibu));
         
         // Save data to database table "Users"
         db.UserResponses.create({
@@ -59,7 +59,8 @@
           ibu: ibu
         })
         .then(function(dbUserBeer) {
-          res.json(dbUserBeer);
+          // Debugging..
+          // res.json(dbUserBeer);
         });
       }
     });
@@ -67,57 +68,44 @@
 
   // Results page shows a beer from ChicagoBeers database
   router.get("/results", function(req, res) {
-    // Find latest entry 
+    // Find latest user entry 
     db.UserResponses.findAll({
       limit: 1,
       order: [ ['createdAt', 'DESC']]
     })
       .then(function(userResponseData) {
-        console.log(userResponseData);
+        
+        // Debugging..
+        // console.log(userResponseData);
+        
+        // Get the IBU of the last user entry
         var userIBU = userResponseData[0].dataValues.ibu;
+
+        // Find Chicago beer with the closest IBU
         db.ChicagoBeers.findAll({
-          // where: {
-          //   ibu: userResponseData[0].dataValues.ibu
-          // }
           limit: 1,
           order: [
             [sequelize.fn('ABS', sequelize.condition(sequelize.col('ibu'), '-', userIBU)), 'ASC']
             ]
         })
         .then(function(dbChicagoBeer) {
-          // Pick random beer that matchs SRM
-          console.log("=====================");
-          console.log(dbChicagoBeer);
-          // var randomBeer = dbChicagoBeer[Math.floor(Math.random() * dbChicagoBeer.length)];
-      
-          //Testing
-          //console.log(randomBeer);
-
+          
+          // Debugging..
+          // console.log("=====================");
+          // console.log(dbChicagoBeer);
+          
           //Creating an object for Handlebars (beer name, brewery & SRM)
           var hbsObject = {
             beer: dbChicagoBeer[0].dataValues.beer,
             brewery: dbChicagoBeer[0].dataValues.brewery,
             ibu: dbChicagoBeer[0].dataValues.ibu
           }
+
           // Render /results page with the selected beer
           res.render("results", hbsObject);
       });
       });
     });
-
-
-  router.get("/api/userId", function(req, res) {
-    // Select all items in database
-    db.UserResponses.findAll({
-      limit: 1,
-      order: [ ['createdAt', 'DESC']]
-    })
-      .then(function(dbUserBeer) {
-        //console.log(dbUserBeer[0].id);
-        console.log(dbUserBeer[0].id);
-        return dbUserBeer;
-      });
-  });
 
   // Export routes to server.js 
   module.exports = router;
