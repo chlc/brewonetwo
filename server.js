@@ -34,7 +34,7 @@
 	var routes = require("./controllers/beers_controller.js");
 	app.use("/", routes);
 	app.use("/api", routes);
-	app.use("/api/userId", routes);
+	app.use("/results", routes);
 
 	// Starting our Express app
 	// =============================================================
@@ -44,4 +44,4 @@
 		});
 	})
 
-module.exports = app;
+//module.exports = app;
