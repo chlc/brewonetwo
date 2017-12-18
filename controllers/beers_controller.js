@@ -46,7 +46,10 @@
 
         var actualBeerName = result.name;
         var actualBrewery = result.breweries[0].name;
-        var ibu = parseInt(result.ibu);
+        var ibu = 0;
+        if (result.ibu != undefined) {
+          ibu = parseInt(result.ibu);
+        }
 
         // Debugging..
         // console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nIBU: " + parseString(ibu));
@@ -67,6 +70,7 @@
 
   // Results page shows a beer from ChicagoBeers database
   router.get("/results", function(req, res) {
+
     // Find latest user entry 
     db.UserResponses.findAll({
       limit: 1,
@@ -89,11 +93,18 @@
         })
         .then(function(dbChicagoBeer) {
           
+          // Handling unavailable SRM values
+          var srm = dbChicagoBeer[0].dataValues.srmID;
+          if (srm === 0) {
+            srm = "N/A";
+          }
+
           // Debugging..
           // console.log("=====================");
           // console.log(dbChicagoBeer);
-          
-          //Creating an object for Handlebars (beer name, brewery & SRM)
+          // console.log(dbChicagoBeer.length);
+
+          //Creating an object for Handlebars
           var hbsObject = {
             beer_name: dbChicagoBeer[0].dataValues.beer_name,
             brewery: dbChicagoBeer[0].dataValues.brewery,
@@ -105,7 +116,7 @@
             website: dbChicagoBeer[0].dataValues.website,
             abv: dbChicagoBeer[0].dataValues.abv,
             ibu: dbChicagoBeer[0].dataValues.ibu,
-            srmID: dbChicagoBeer[0].dataValues.srmID
+            srmID: srm
           }
 
           // Render /results page with the selected beer

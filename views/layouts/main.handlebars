@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<!-- Basic Page Needs
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<title>brew-one-two | results</title>
 	<meta charset="UTF-8">
-		<!-- google fonts, Bungee -->
-<!-- 		<link href="https://fonts.googleapis.com/css?family=Bungee&effect=shadow-multiple" rel="stylesheet"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Latest compiled and minified bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Fonts
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	
+	<!-- CSS
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-		<link rel="stylesheet" href="./css/style.css" type="text/css" />
-		<link rel="stylesheet" href="./css/Beer/beer.css" type="text/css"/>
-		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<!-- Latest compiled and minified bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="./css/style.css" type="text/css" />
+	<link rel="stylesheet" href="./css/beer.css" type="text/css" />
+	
+	<!-- JavaScript
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="./js/script.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-		<!-- <script src="/assets/js/burgers.js"></script> -->
-		<title>brew-one-two</title>
 </head>
+
+	<!-- Primary Page Layout
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <body>
 	<div class="container optionContainer">
 		<div class="row">
@@ -28,35 +41,8 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Beer Information</h2>
-				
-				{{{ body }}}
-			</div>
+	{{{ body }}}
+	
 	</div>
-
-<script>
-
-	$(function() {
-	  function beerRise() {
-	    $('.beer').addClass('fill');
-	    $('.head').addClass('active');
-	  }
-	  function pourBeer() {
-	    $('.pour').addClass('pouring');
-	    beerRise();
-	    setTimeout(function() {
-	      $('.pour').addClass('end');
-	    }, 1500);
-	  }
-	  setTimeout(function() {
-	    pourBeer();
-	  }, 3000);
-	});
-
-</script>
-
-
 </body>
 </html>

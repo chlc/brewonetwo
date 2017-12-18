@@ -26,7 +26,7 @@
 	
 }
 
-.optionContainer{
+.optionContainer {
 	background-color: goldenrod; 
 	text-align: center;
 	border: 5px solid black;
@@ -36,9 +36,47 @@
 
 .beerInformation,
 h2 {
-	padding: 20px
+	padding: 10px;
+	text-align: left;
 }
 
 .beerTraits{
-	padding: 10px
+	padding: 10px;
+}
+
+.beerTraitsHeading {
+	border-left: solid black 2px;
+    margin-left: -10px; 
+}
+
+.beerTraitsHeading:before {
+    content: ".";
+    display: inline-block;
+    background-color: black;
+    height: 2px;
+    overflow: hidden;
+    position: absolute; 
+    width: 200px;
+    top: 50%; 
+    left: -200px;
+    z-index: 9999;
+}
+
+address {
+	font-size: 1.05em;
+}
+
+@media (max-width: 991px) {
+	.beerTraits, .beerInformation, address {
+		text-align: center !important; 
+	}
+	.optionContainer {
+		height: 1250px;
+	}
+	.beerTraitsHeading {
+		border: none;
+	}
+	#beerImg {
+		text-align: center;
+	}
 }

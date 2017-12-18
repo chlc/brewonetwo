@@ -2,15 +2,8 @@
 // =====================================================================================
 	
 $(document).ready(function(){
-	
-	// var getIDOfUser = function() {
-	// 	$.get("/api/userId", function(data) {
-	// 		console.log(data);
-	// 		window.location.href = "/results/" + data;
-	// 	})
-	// };
 
-
+	// Form submit event
 	$("#brew-form-submit").on("click", function() {
 		event.preventDefault();
 
@@ -37,4 +30,22 @@ $(document).ready(function(){
 	        window.location.href = "/results";
       	});
 	});
+
+	// Beer Glass Animation
+	function beerRise() {
+	    $('.beer').addClass('fill');
+	    $('.head').addClass('active');
+	  }
+	
+	function pourBeer() {
+	    $('.pour').addClass('pouring');
+	    beerRise();
+	    setTimeout(function() {
+	      $('.pour').addClass('end');
+	    }, 1500);
+	}
+	setTimeout(function() {
+	    pourBeer();
+	}, 3000);
+
 });	

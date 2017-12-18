@@ -1,78 +1,79 @@
-<div class="row beerInformation">
-					<div class="col-md-6">
-						Beer Name: 
-					</div>
-					<div class="col-md-6">
-						<div id="beerName">{{beer_name}}
-						</div>
-					</div>
-				</div>
+<div class="row">
+	<div class="col-md-4">
+		<h2 class="text-center">Beer Information</h2>
 
-				<div class="row beerInformation">
-					<div class="col-md-6">
-						Brewery Name:
-					</div>
-					<div class="col-md-6">
-						<div id="beerBrewery">{{brewery}}
-						</div>
-					</div>
-				</div>
-		
-				<div class="row beerInformation">
-					<div class="col-md-6">
-						Address:
-					</div>
-					<div class="col-md-6">
-						<div id="beerAddress">
-						<p>{{location_name}}</p>
-						<p>{{streetAddress}}</p>
-						<p>{{city}}, {{state}} {{zipCode}}</p>
-						<p>{{website}}</p>
-						</div>
-					</div>		
-				</div>
+		{{!-- Beer Name --}}
+		<div class="row beerInformation">
+			<div class="col-md-6">
+				<h4>Beer Name:</h4>
 			</div>
-
-			<div class="col-md-4">
-				<div id="beerContainer">
-				  <div class="glass">
-				    <div class="beer"></div>
-				  </div>
-				  <div class="head"></div>
-				  <div class="hideB"></div>
-				  <div class="pour"></div>
-				</div>
+			<div class="col-md-6" id="beerName">
+				<h4>{{beer_name}}</h4>
 			</div>
+		</div>
+		<div class="row beerInformation">
+			<div class="col-md-6">
+				<h4>Brewery Name:</h4>
+			</div>
+			<div class="col-md-6" id="beerBrewery">
+				<h4>{{brewery}}</h4>
+			</div>
+		</div>
 
-			<div class="col-md-4">
-				<h2>Beer Traits</h2>
-				
-				<div class="row beerTraits">
-					<div class="col-md-6">
-						SRM:
-					</div>
-					<div class="col-md-6">
-						<div id="srm">{{srmID}}
-						</div>
-					</div>
-				</div>
+		{{!-- Brewery Info --}}			
+		<div class="row beerInformation">
+			<div class="col-md-6">
+				<h4>Address:</h4>
+			</div>
+			<div class="col-md-6" id="beerAddress">
+				<address class="text-left">
+					{{location_name}}<br>
+					{{streetAddress}}<br>
+					{{city}}, {{state}} {{zipCode}}<br>
+					<a href="{{website}}" target="_blank">{{website}}</a>
+				</address>
+			</div>		
+		</div>
+	</div>
 
-				<div class="row beerTraits">
-					<div class="col-md-6">
-						IBU:
-					</div>
-					<div class="col-md-6">
-						<div id="ibu">{{ibu}}
-						</div>
-					</div>
-				</div>
-		
-				<div class="row beerTraits">
-					<div class="col-md-6">
-						ABV:
-					</div>
-					<div class="col-md-6">
-						<div id="abv">{{abv}}
-						</div>
-					</div>		
-				</div>
+	{{!-- Beer Graphic  --}}
+	<div class="col-md-4">
+		<div id="beerContainer">
+			<div class="glass">
+				<div class="beer"></div>
+			</div>
+			<div class="head"></div>
+			<div class="hideB"></div>
+			<div class="pour"></div>
+		</div>
+	</div>
+
+	{{!-- Beer Traits  --}}
+	<div class="col-md-4 text-left">
+		<h2 class="text-center">Beer Traits</h2>			
+		<div class="row beerTraits">
+			<div class="col-md-6 beerTraitsHeading">
+				<h4>SRM:</h4>
+			</div>
+			<div class="col-md-6" id="srm">
+				<h4 value="{{srmID}}" id="srmValue">{{srmID}}</h4>
+			</div>
+		</div>
+		<div class="row beerTraits">
+			<div class="col-md-6 beerTraitsHeading">
+				<h4>IBU:</h4>
+			</div>
+			<div class="col-md-6" id="ibu">
+				<h4>{{ibu}}</h4>
+			</div>
+		</div>
+		<div class="row beerTraits">
+			<div class="col-md-6 beerTraitsHeading">
+				<h4>ABV:</h4>
+			</div>
+			<div class="col-md-6" id="abv">
+				<h4>{{abv}}</h4>
+			</div>
+		</div>		
+	</div>
+</div>

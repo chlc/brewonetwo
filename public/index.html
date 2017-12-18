@@ -1,74 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<!-- Basic Page Needs
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<title>brew-one-two | search</title>
 	<meta charset="UTF-8">
-		<!-- google fonts, Bungee -->
-<!-- 		<link href="https://fonts.googleapis.com/css?family=Bungee&effect=shadow-multiple" rel="stylesheet"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
 
-		<!-- Latest compiled and minified bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" href="./css/style.css" type="text/css" />
+	<!-- Fonts
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 
-		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<!-- Latest compiled and minified bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script src="./js/script.js"></script>
-		<title>brew-one-two</title>
+	<!-- CSS
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+	<!-- Latest compiled and minified bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/style.css" type="text/css" />
+
+	<!-- JavaScript
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Latest compiled and minified bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="./js/script.js"></script>
+
 </head>
+
+	<!-- Primary Page Layout
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <body>
 
-<div class="container">
-	<div class="jumbotron jumboHeader">
+	<div class="container">
+		<div class="jumbotron jumboHeader">
 
-        <div class="image-container">
-        <!-- codepen animation goes inside this container -->
-			<img id="beerImg" src="./img/beer.png"></img>
-        </div>
+	        <div class="image-container">
+	        <!-- codepen animation goes inside this container -->
+				<img id="beerImg" src="./img/beer.png"></img>
+	        </div>
 
-		<div class="container">
+			<div class="container">
 
-			<form>
-			  <div class="form-group formGroups">
-			    <label class="labelStyle" for="beer-name">Question: What is the name of your favorite beer?</label>
-			  </div>
-			  <div class="form-group formGroups">
-			    <label class="labelStyle" for="brewery-name">Your Favorite Beer:</label>
-			    <input type="text" class="form-control" id="beer-name-input" placeholder="Beer Name">
-			  </div>
-			  <div class="form-group formGroups">
-			    <label class="labelStyle" for="beer-name">Question: Who brews  your favorite beer?</label>
-			  </div>
-			  <div class="form-group formGroups">
-			    <label class="labelStyle" for="brewery-name">Your Favorite Beer's Brewery:</label>
-			    <input type="text" class="form-control" id="brewery-name-input" placeholder="Beer Name">
-			  </div>
-			  <div class="form-group formGroups">
-			  	<button type="submit" class="btn btn-primary" id="brew-form-submit">Submit</button>
-			</form>
-
+				<form>
+					<div class="form-group formGroups">
+				    	<label class="labelStyle" for="beer-name">Question: What is the name of your favorite beer?</label>
+				  	</div>
+				  	<div class="form-group formGroups">
+				    	<label class="labelStyle" for="brewery-name">Your Favorite Beer:</label>
+				    	<input type="text" class="form-control" id="beer-name-input" placeholder="Beer Name">
+				  	</div>
+				  	<div class="form-group formGroups">
+				    	<label class="labelStyle" for="beer-name">Question: Who brews your favorite beer?</label>
+				  	</div>
+				  	<div class="form-group formGroups">
+				    	<label class="labelStyle" for="brewery-name">Your Favorite Beer's Brewery:</label>
+				    	<input type="text" class="form-control" id="brewery-name-input" placeholder="Beer Name">
+				  	</div>
+				  	<div class="form-group formGroups">
+				  		<button type="submit" class="btn btn-primary" id="brew-form-submit">Submit</button>
+					</div>
+				</form>
+			</div>
 		</div>
-
 	</div>
-</div>
-
-
-	<!-- Peter's Form -->
-<!-- 		<form>
-		  <div class="form-group">
-		    <label for="beer-name">Tell us the name of a beer you like (from anywhere), and we'll find the Chicago equivalent</label>
-		    <input name="beerName" type="text" class="form-control" id="beer-name-input" placeholder="Beer Name">
-		  </div>
-		  <div class="form-group">
-		    <label for="brewery-name">Brewed By:</label>
-		    <input name="breweryName" type="text" class="form-control" id="brewery-name-input" placeholder="Brewery Name">
-		  </div>
-		  <div class="form-group">
-		  	<button type="submit" class="btn btn-primary" id="brew-form-submit">Submit</button>
-		</form>
- -->
-	</div>
-
 
 </body>
 </html>
