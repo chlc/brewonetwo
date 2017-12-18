@@ -33,8 +33,7 @@ $(document).ready(function(){
 	      	breweryNameLC : breweryNameLC,
 	      	encodeSearchString : encodeSearchString
 	      }
-	    }).then(
-	      function(data) {
+	    }).then(function(data) {
 	        window.location.href = "/results";
       	});
 	});

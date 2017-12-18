@@ -29,7 +29,6 @@
 
     // Debugging..
     // console.log("Beer Query: " + beerQuery + "\nBrewery Query: " + breweryQuery + "\nEncoded Search String: " + encodeSearchString);
-    console.log(beerQueryURL);
 
     // API Call
     // ==========================================================
@@ -56,11 +55,11 @@
         db.UserResponses.create({
           beer_name: actualBeerName,
           brewery: actualBrewery,
-          ibu: ibu
+          ibu: ibu,
         })
         .then(function(dbUserBeer) {
           // Debugging..
-          // res.json(dbUserBeer);
+          res.json(dbUserBeer);
         });
       }
     });
@@ -96,9 +95,17 @@
           
           //Creating an object for Handlebars (beer name, brewery & SRM)
           var hbsObject = {
-            beer: dbChicagoBeer[0].dataValues.beer,
+            beer_name: dbChicagoBeer[0].dataValues.beer_name,
             brewery: dbChicagoBeer[0].dataValues.brewery,
-            ibu: dbChicagoBeer[0].dataValues.ibu
+            location_name: dbChicagoBeer[0].dataValues.location_name,
+            streetAddress: dbChicagoBeer[0].dataValues.streetAddress,
+            city: dbChicagoBeer[0].dataValues.city,
+            state: dbChicagoBeer[0].dataValues.state,
+            zipCode: dbChicagoBeer[0].dataValues.zipCode, 
+            website: dbChicagoBeer[0].dataValues.website,
+            abv: dbChicagoBeer[0].dataValues.abv,
+            ibu: dbChicagoBeer[0].dataValues.ibu,
+            srmID: dbChicagoBeer[0].dataValues.srmID
           }
 
           // Render /results page with the selected beer

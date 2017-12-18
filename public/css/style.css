@@ -16,12 +16,12 @@
 
 .formGroups {
 	text-align: left;
-	font-family: "SkittlesnBeerNF";
+	font-family: "Righteous";
 	font-size: 150%;
 }
 
 .page-header {
-	font-family: "SkittlesnBeerNF";
+	font-family: "Righteous";
 	font-size: 150%;
 	
 }
@@ -31,7 +31,7 @@
 	text-align: center;
 	border: 5px solid black;
 	height: 550px;
-	font-family: "SkittlesnBeerNF";
+	font-family: "Righteous";
 }
 
 .beerInformation,
@@ -41,10 +41,4 @@ h2 {
 
 .beerTraits{
 	padding: 10px
-}
-
-
-@font-face {
- font-family: "SkittlesnBeerNF";
- src: url("./fonts/SkittlesnBeerNF.otf") format("otf"),
 }
