@@ -48,4 +48,16 @@ $(document).ready(function(){
 	    pourBeer();
 	}, 3000);
 
+	// Modal
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+
+	$(".modal").each(function(index) {
+		$(this).on('show.bs.modal', function(e) {
+    		var open = $(this).attr('data-easein');
+			$('.modal-dialog').velocity('transition.' + open);
+  		});
+	});
+
 });	
