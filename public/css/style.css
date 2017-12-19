@@ -1,0 +1,124 @@
+body {
+	letter-spacing: .06em;
+}
+
+.modal.custom .modal-dialog .modal-content {	
+    margin:0 auto;
+    /*add what you want here*/
+    background-color: goldenrod;
+    color: black; 
+	text-align: center;
+	border: 5px solid black;
+	font-family: "Righteous";
+	font-size: 150%;
+}
+
+.modal.custom .modal-title {
+	font-size: 150%;
+	border: 0px;
+}
+
+.modal.custom .modal-header {
+	border: 0px;
+}
+
+.modal.custom .modal-footer {
+	border: 0px;
+}
+
+.modal-image {
+	max-height: 100px;
+	text-align: center;
+}
+
+.beerForm {
+	margin-top: 40px;
+}
+
+.jumboHeader{
+	background-color: goldenrod; 
+	color: white; 
+	text-align: center;
+	border: 5px solid black;
+}
+
+.labelStyle{
+	color: black;
+}
+
+#beerImg{
+	height: 437px;
+	max-height: 100%
+}
+
+.formGroups {
+	text-align: left;
+	font-family: "Righteous";
+	font-size: 150%;
+}
+
+.page-header {
+	font-family: "Righteous";
+	font-size: 150%;
+	
+}
+
+.optionContainer {
+	background-color: goldenrod; 
+	text-align: center;
+	border: 5px solid black;
+	height: 550px;
+	font-family: "Righteous";
+}
+
+.beerInformation,
+h2 {
+	padding: 10px;
+	text-align: left;
+}
+
+.beerTraits{
+	padding: 10px;
+}
+
+.beerTraitsHeading {
+	border-left: solid black 2px;
+    margin-left: -10px; 
+}
+
+.beerTraitsHeading:before {
+    content: ".";
+    display: inline-block;
+    background-color: black;
+    height: 2px;
+    overflow: hidden;
+    position: absolute; 
+    width: 200px;
+    top: 50%; 
+    left: -200px;
+    z-index: 9999;
+}
+
+address {
+	font-size: 1.05em;
+}
+
+#brew-form-submit {
+	letter-spacing: .08em;
+}
+
+@media (max-width: 991px) {
+	.beerTraits, .beerInformation, address {
+		text-align: center !important; 
+	}
+	.optionContainer {
+		height: 1250px;
+	}
+	.beerTraitsHeading {
+		border: none;
+	}
+	#beerImg {
+		text-align: center;
+	}
+}
+

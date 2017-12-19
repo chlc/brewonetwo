@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Basic Page Needs
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<title>brew-one-two | search</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+
+	<!-- Fonts
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+	<!-- CSS
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+	<!-- Latest compiled and minified bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Custom Styles -->
+	<link rel="stylesheet" href="./css/style.css" type="text/css" />
+
+	<!-- animate.css -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+	<!-- JavaScript
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<!-- Latest compiled and minified bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- Custom Script -->
+	<script src="./js/script.js"></script>
+
+	<!-- Velocity.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.ui.min.js"></script>
+
+</head>
+
+	<!-- Primary Page Layout
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<body>
+
+	<div class="container">
+		<div class="jumbotron jumboHeader">
+
+	        <div class="image-container">
+	        <!-- codepen animation goes inside this container -->
+				<img id="beerImg" src="./img/brewonetwologo.png"></img>
+	        </div>
+
+			<div class="container beerForm">
+
+				<form>
+				  	<div class="form-group formGroups">
+				    	<label class="labelStyle" for="brewery-name">What is the name of your favorite beer?</label>
+				    	<input type="text" class="form-control" id="beer-name-input" placeholder="Beer Name">
+				  	</div>
+				  	<div class="form-group formGroups">
+				    	<label class="labelStyle" for="brewery-name">What brewery makes your favorite beer?</label>
+				    	<input type="text" class="form-control" id="brewery-name-input" placeholder="Brewery Name">
+				  	</div>
+				  	<div class="form-group formGroups">
+				  		<button type="submit" class="btn btn-primary" id="brew-form-submit">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+
+    <div id="myModal" class="modal custom" data-easein="whirlIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Welcome to BrewOneTwo!</h4>
+          </div>
+          <div class="modal-body">
+            <p>We are here to connect you with the best beers that Chicago has to offer.<br><br>Please enter your favorite beer brand and maker and we will suggest a Chicago brew that you will enjoy!<br><br>Cheers!</p>
+            <img class="img-fluid modal-image" src="./img/modalbeer.png" alt="Beer Glasses">
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
