@@ -49,8 +49,13 @@ $(document).ready(function(){
 	}, 3000);
 
 	// Modal
+	function showModal() {
+		$('#myModal').modal('show');
+	}
     $(window).on('load',function(){
-        $('#myModal').modal('show');
+		setTimeout(function() {
+	    	showModal();
+		}, 1000);
     });
 
 	$(".modal").each(function(index) {
