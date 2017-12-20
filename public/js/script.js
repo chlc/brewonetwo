@@ -49,7 +49,10 @@ $(document).ready(function(){
 	}, 3000);
 
 	// Modal
-	function showModal() {
+
+  if (localStorage.getItem('modalState') != 'shown'){
+
+  	function showModal() {
 		$('#myModal').modal('show');
 	}
     $(window).on('load',function(){
@@ -61,8 +64,14 @@ $(document).ready(function(){
 	$(".modal").each(function(index) {
 		$(this).on('show.bs.modal', function(e) {
     		var open = $(this).attr('data-easein');
+    		localStorage.setItem('modalState','shown');
 			$('.modal-dialog').velocity('transition.' + open);
+
   		});
 	});
+
+  }
+
+
 
 });	
