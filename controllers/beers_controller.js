@@ -37,34 +37,50 @@
     request(beerQueryURL, function(error, response, body) {
       if (!error && response.statusCode === 200) {
 
-        // Get beer name, brewery, and SRM from API
-        var result = JSON.parse(body).data[0];
-
-        console.log("=========================")
-        console.log(result);
-
-
-        var actualBeerName = result.name;
-        var actualBrewery = result.breweries[0].name;
-        var ibu = 0;
-        if (result.ibu != undefined) {
-          ibu = parseInt(result.ibu);
-        }
-
-        // Debugging..
-        // console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nIBU: " + parseString(ibu));
+        // If result exists..
+        if (JSON.parse(body).data != undefined) {
         
-        // Save data to database table "Users"
-        db.UserResponses.create({
-          beer_name: actualBeerName,
-          brewery: actualBrewery,
-          ibu: ibu,
+          // Get beer name, brewery, and SRM from API
+          var result = JSON.parse(body).data[0];
+
+          // Debugging..
+          // console.log("=========================")
+          // console.log(result);
+
+          var actualBeerName = result.name;
+          var actualBrewery = result.breweries[0].name;
+          var ibu = 0;
+          // If ibu exists, change ibu.
+          if (result.ibu != undefined) {
+            ibu = parseInt(result.ibu);
+          }
+
+          // Debugging..
+          // console.log("Beer Name: " + actualBeerName + "\nBrewery: " + actualBrewery + "\nIBU: " + parseString(ibu));
+          
+          // Save data to database table "Users"
+          db.UserResponses.create({
+            beer_name: actualBeerName,
+            brewery: actualBrewery,
+            ibu: ibu,
+          })
+          .then(function(dbUserBeer) {
+            // Debugging..
+            res.json(dbUserBeer);
+          });
+        // If no search result, default to 312 Urban Wheat Ale
+        } else {
+          db.UserResponses.create({
+          beer_name: "312 Urban Wheat Ale",
+          brewery: "Goose Island Beer Company",
+          ibu: 18,
         })
         .then(function(dbUserBeer) {
           // Debugging..
           res.json(dbUserBeer);
         });
-      }
+        }    
+      };
     });
   });
 
