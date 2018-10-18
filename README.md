@@ -34,7 +34,7 @@ To replicate this project locally on your machine:
 1. pull/clone the master branch of our repository. navigate to your corresponding local directory.  
 2. ensure all of your node dependencies are installed... 'npm install' (you must have node.js for this to work).  
 3. create a local db using mysql workbench or similar mysql database dev environment/tool (refer to 'development' in config.json file for db name). Do NOT create tables. Sequelize will create them for you in the next step.
-4. type 'node server.js' in terminal (or ??? in windows) and hit enter. if successful, running server.js in node will create two tables; ChicagoBeers and UserResponses5.  
+4. type 'node server.js' in terminal (or command line in windows) and hit enter. if successful, running server.js in node will create two tables; ChicagoBeers and UserResponses5.  
 5. open mysql workbench or similar mysql database dev environment/tool to confirm that two tables were created in the db.  
 6. if they were not, refer back to the config.json file and ensure the development db is correct, password, and user information is correct, and you've created a local instance for the db connection.  
 7. once the two tables have been created (by sequelize), open the seeds.sql file using mysql workbench or similar mysql database dev environment/tool to add data to the table. NOTE: our table is of chicago beers and breweries, yours does not have to be. just follow the same column structure.  
